@@ -49,9 +49,9 @@ var is_festivo = festivos.includes(day+'-'+month);
 if( day == 6 || day == 0 || is_festivo ){
     html = html_valle;
 }else{
-    if( ( hour >= 10 && hour <= 13 ) || ( hour >= 18 && hour <= 22 ) ){
+    if( ( hour >= 10 && hour <= 13 ) || ( hour >= 18 && hour <= 21 ) ){
         html = html_punta;
-    }else if( hour >= 0 && hour <= 8 ){
+    }else if( hour >= 0 && hour <= 7 ){
         html = html_valle;
     }else{
         html = html_llana;
