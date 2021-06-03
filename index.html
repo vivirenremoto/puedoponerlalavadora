@@ -25,14 +25,28 @@ a{color:black;}
 var date = new Date();
 var hour = date.getHours();
 var day = date.getDay();
+var month = date.getMonth();
+var opacity = 0;
 var html;
+var timer;
 
 var html_punta = '<h2>NO</h2><h3 class="red">HORA PUNTA</h3>';
 var html_llana = '<h2>SÍ</h2><h3 class="yellow">HORA LLANA</h3>';
 var html_valle = '<h2>SÍ</h2><h3 class="green">HORA VALLE</h3>';
 
+var festivos = [];
+festivos.push('1-1');
+festivos.push('2-4');
+festivos.push('1-5');
+festivos.push('12-10');
+festivos.push('1-11');
+festivos.push('6-12');
+festivos.push('8-12');
+festivos.push('25-12');
+var is_festivo = festivos.includes(day+'-'+month);
+
 // sabado - domingo
-if( day == 6 || day == 0 ){
+if( day == 6 || day == 0 || is_festivo ){
     html = html_valle;
 }else{
     if( ( hour >= 10 && hour <= 13 ) || ( hour >= 18 && hour <= 22 ) ){
@@ -47,11 +61,15 @@ if( day == 6 || day == 0 ){
 document.write(html);
 
 setTimeout(function(){
-    document.getElementById('info').style.display = 'block';
+    timer = setInterval(function(){
+        opacity += 0.01;
+        document.getElementById('info').style.opacity = opacity;
+        if( opacity >= 1 ) clearInterval(timer);
+    }, 1);
 }, 2000);
 </script>
 
-<div id="info" style="display:none">
+<div id="info" style="opacity:0;">
 
     <br><br><br>
 
