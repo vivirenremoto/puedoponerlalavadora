@@ -4,4 +4,4 @@
 
 [Autor](https://twitter.com/vivirenremoto)
 
-![¿Puedo poner la lavadora?](https://vivirenremoto.github.io/puedoponerlalavadora/static/social.png)
+![¿Puedo poner la lavadora?](https://vivirenremoto.github.io/puedoponerlalavadora/social.png)
