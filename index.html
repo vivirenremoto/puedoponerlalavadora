@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>✅ ¿Puedo poner la lavadora?</title>
+    <title>¿Puedo poner la lavadora?</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="shortcut icon" href="yes.png" />
+
 
     <meta property="og:image" content="https://puedoponerlalavadora.com/social.png">
     <meta property="og:image:secure_url" content="https://puedoponerlalavadora.com/social.png">
-    <meta property="og:image:alt" content="✅ ¿Puedo poner la lavadora?">
+    <meta property="og:image:alt" content="¿Puedo poner la lavadora?">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="✅ ¿Puedo poner la lavadora?">
+    <meta name="twitter:title" content="¿Puedo poner la lavadora?">
     <meta name="twitter:image" content="https://puedoponerlalavadora.com/social.png">
 
 </head>
@@ -55,7 +57,7 @@ var month = date.getMonth();
 var opacity = 0;
 var html;
 var timer;
-var status;
+var icon;
 
 var html_punta = '<h2>NO</h2><h3 class="red">HORA PUNTA</h3>';
 var html_llana = '<h2>SÍ</h2><h3 class="yellow">HORA LLANA</h3>';
@@ -84,9 +86,14 @@ if( day == 6 || day == 0 || is_festivo ){
         html = html_llana;
     }
 }
-
 document.write(html);
 
+// favicon
+if( html.indexOf('PUNTA') > -1 ){
+    document.querySelector('link[rel~="icon"]').href = 'no.png';
+}
+
+// credits
 setTimeout(function(){
     timer = setInterval(function(){
         opacity += 0.01;
@@ -96,12 +103,9 @@ setTimeout(function(){
 }, 1500);
 
 setInterval(function(){
-    var icon;
-    if( status == 1 ){
-        status = 0;
+    if( icon == '❤️' ){
         icon = '☕';
     }else{
-        status = 1;
         icon = '❤️';
     }
     document.getElementById('love').innerHTML = icon;
