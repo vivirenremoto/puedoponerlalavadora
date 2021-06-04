@@ -26,7 +26,7 @@
 h1{font-size:50px;margin-bottom:40px;}
 a{color:black;}
 
-#btn_back{display:block;text-decoration:none;cursor:pointer;font-size:15px;border:5px black solid;margin:40px auto;width:200px;padding:15px 0;text-transform:uppercase;font-weight:bold;color:black;background:none;text-align:center;}
+.btn{display:block;text-decoration:none;cursor:pointer;font-size:15px;border:5px black solid;margin:20px auto;width:200px;padding:15px 0;text-transform:uppercase;font-weight:bold;color:black;background:none;text-align:center;}
 #box{width:600px;max-width:100%;}
 
 @media screen and (max-width: 480px) {
@@ -65,10 +65,35 @@ a{color:black;}
         
         <a href="https://twitter.com/vivirenremoto" target="_blank">Sígueme en twitter</a>
 
-        <a href="/" id="btn_back">Volver</a>
+        <br><br>
+
+        <button onclick="share()" class="btn">Compartir</button>
+        
+
+
+        <a href="/" class="btn">Volver</a>
 
     </div>
 </div>
     
+
+
+<script>
+function share() {
+    var share_title = document.title;
+    var share_url = document.location.href;
+
+    if (navigator.share) {
+        navigator.share({
+            title: share_title,
+            url: share_url
+        });
+
+    } else {
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(share_title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
+    }
+}
+</script>
+
 </body>
 </html>
