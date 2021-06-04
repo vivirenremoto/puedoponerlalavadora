@@ -96,13 +96,12 @@ if( html.indexOf('PUNTA') > -1 ){
 
 // credits
 setTimeout(function(){
-
     timer = setInterval(function(){
         opacity += 0.01;
         document.getElementById('info').style.opacity = opacity;
         if( opacity >= 1 ) clearInterval(timer);
     }, 1);
-}, 1500);
+}, 1300);
 
 setInterval(function(){
     if( icon == '❤️' ){
