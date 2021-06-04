@@ -36,7 +36,7 @@ h3{font-size:30px;display:inline-block;margin-top:10px;}
 .green{border-bottom:8px #16C60C solid;}
 .red{border-bottom:8px red solid;}
 .yellow{border-bottom:8px yellow solid;}
-a{color:black;}
+a{color:black;text-decoration:none;}
 
 
 @media screen and (max-width: 480px) {
@@ -55,6 +55,7 @@ var month = date.getMonth();
 var opacity = 0;
 var html;
 var timer;
+var status;
 
 var html_punta = '<h2>NO</h2><h3 class="red">HORA PUNTA</h3>';
 var html_llana = '<h2>SÍ</h2><h3 class="yellow">HORA LLANA</h3>';
@@ -93,17 +94,29 @@ setTimeout(function(){
         if( opacity >= 1 ) clearInterval(timer);
     }, 1);
 }, 1500);
+
+setInterval(function(){
+    var icon;
+    if( status == 1 ){
+        status = 0;
+        icon = '☕';
+    }else{
+        status = 1;
+        icon = '❤️';
+    }
+    document.getElementById('love').innerHTML = icon;
+}, 1000);
 </script>
 
 <div id="info" style="opacity:0;">
 
     <br><br><br>
 
-    ¿Necesitas <span>🧺 </span><a href="https://amzn.to/3vR8Xzk" target="_blank">lavadora</a>, <span>🧼 </span><a href="https://amzn.to/34L8fIg" target="_blank">detergente</a> o <span>😴 </span><a href="https://amzn.to/2SVnF9Y" target="_blank">monster</a>?
+    ¿Necesitas <a href="https://amzn.to/3vR8Xzk" target="_blank"><span>🧺 </span><u>lavadora</u></a>, <a href="https://amzn.to/34L8fIg" target="_blank"><span>🧼 </span><u>detergente</u></a> o <a href="https://amzn.to/2SVnF9Y" target="_blank"><span>😴 </span><u>monster</u></a>?
 
     <br><br><br>
 
-    Hecho con ❤️ por <a href="https://vivirenremoto.github.io/" target="_blank">@vivirenremoto</a>
+    Hecho con <a href="http://bit.ly/invitameauncafe" target="_blank" id="love">☕</a> por <a href="https://vivirenremoto.github.io/" target="_blank"><u>@vivirenremoto</u></a>
 
 </div>
 
