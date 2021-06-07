@@ -53,7 +53,8 @@ a{color:black;text-decoration:none;}
 <script>
 var date = new Date();
 var hour = date.getHours();
-var day = date.getDay();
+var day = date.getDate();
+var weekday = date.getDay();
 var month = date.getMonth() + 1;
 var opacity = 0;
 var html;
@@ -76,7 +77,7 @@ festivos.push('25-12');
 var is_festivo = festivos.includes(day+'-'+month);
 
 // sabado - domingo
-if( day == 6 || day == 0 || is_festivo ){
+if( weekday == 6 || weekday == 0 || is_festivo ){
     html = html_valle;
 }else{
     if( ( hour >= 10 && hour <= 13 ) || ( hour >= 18 && hour <= 21 ) ){
